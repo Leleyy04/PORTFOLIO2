@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add this to your head -->
+<style>
+    /* Ensure elements are visible before animations start */
+    .fade-in, .slide-up, .project-card {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+</style>
+
+<!-- Project cards with animation order -->
+<div class="projects-container">
+    <div class="project-card" style="--order: 0">
+        <!-- card content -->
+    </div>
+    <div class="project-card" style="--order: 1">
+        <!-- card content -->
+    </div>
+    <div class="project-card" style="--order: 2">
+        <!-- card content -->
+    </div>
+</div>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <header class="header fade-in">
+        <div class="logo">
+            <img src="Pink_Y2k_Flower_Cute_Streetwear_Logo-removebg-preview.png" alt="Logo">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content projects-page">
+        <section class="projects-section slide-up">
+            <h1>My <span>Projects</span></h1>
+            <p>Here are some of my recent works</p>
+            
+            <div class="projects-container">
+                <div class="project-card" style="--order: 1">
+                    <div class="project-image">
+                        <img src="Screenshot (71).png" alt="Project 1">
+                    </div>
+                    <div class="project-info">
+                        <h3>Personal Portfolio</h3>
+                        <p class="project-description">A fully responsive portfolio website showcasing my work and skills.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://leleyy04.github.io/LEYWEBSITE/" class="btn-link"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" style="--order: 2">
+                    <div class="project-image">
+                        <img src="" alt="Project 2">
+                    </div>
+                    <div class="project-info">
+                        <h3>asala</h3>
+                        <p class="project-description">walapa.</p>
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>e</span>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-link"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" style="--order: 3">
+                    <div class="project-image">
+                        <img src="" alt="Project 3">
+                    </div>
+                    <div class="project-info">
+                        <h3>a</h3>
+                        <p class="project-description">aPI.</p>
+                        <div class="project-tech">
+                            <span>I</span>
+                            <span>JavaScript</span>
+                            <span>Responsive</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-link"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="https://github.com/Leleyy04" class="icon-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/lynnard.d.tabilin" class="icon-link"><i class="fab fa-facebook"></i></a>
+            <a href="https://t.me/Leyy1004" class="icon-link"><i class="fab fa-telegram"></i></a>
+            <a href="https://www.instagram.com/eley_tbln/" class="icon-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/lynnard-tabilin-4a793a358/" class="icon-link"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2025 ARAL MGA BOSS WAG PURO COPY PASTE All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add this to your script.js
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navbar = document.querySelector('.navbar');
+            
+            menuToggle.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+            
+            // Animate project cards on scroll
+            const animateOnScroll = () => {
+                const projectCards = document.querySelectorAll('.project-card');
+                const windowHeight = window.innerHeight;
+                
+                projectCards.forEach(card => {
+                    const cardPosition = card.getBoundingClientRect().top;
+                    const animationPoint = windowHeight - 100;
+                    
+                    if(cardPosition < animationPoint) {
+                        card.style.animationPlayState = 'running';
+                    }
+                });
+            };
+            
+            window.addEventListener('load', animateOnScroll);
+            window.addEventListener('scroll', animateOnScroll);
+        });
+    </script>
+</body>
+</html> 
